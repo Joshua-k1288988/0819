@@ -1,0 +1,22 @@
+create database data0818test default character set utf8;
+use data0818test;
+create table city(
+    cityid int primary key,
+    cityName varchar(20)
+);
+
+insert into city values (2,'Taipei), (4, 'Taichung'), (6, 'Tainan');
+
+create table employee( 
+    employeeid int auto_increment primary key,
+    fristName varchar(20),
+    lastName varchar(20),
+    cityid int
+);
+
+insert into employee (fristName, lastName, cityid) values
+('Tony', 'Lin', 2) , ('Chien-Nan' , 'Chen' , 4);
+
+select employeeid, fristName, lastName, e.cityid, cityName
+ from city c 
+join employee e on e.cityid = c.cityid;
